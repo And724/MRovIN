@@ -1,0 +1,42 @@
+<html lang="en"> 
+  <head> 
+    <meta charset="UTF-8" /> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="main.js"></script> 
+    <script type="text/javascript" src="/eel.js"></script>
+    <title>MRovIn</title> 
+    </head>
+
+    <body>
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <p class="submenu">Rover Select</p>
+            <p class="menuList" id="P" onclick="getP()">Perseverance</p>
+            <p class="menuList" id="C" onclick="getC()">Curiosity</p>
+            <p class="menuList" id="O" onclick="getO()">Opportunity</p>
+            <p class="menuList" id="S" onclick="getS()">Spirit</p>
+            <p class="submenu">Camera Select</p>
+            <ul id="cameraNames"></ul>
+          </div>
+          
+          <div id="main">
+            <button class="openbtn" onclick="openNav()">&#9776; Configuration</button>
+          </div>
+        <nav class = "Global Nav">
+            <a href='index.html'>MRovIn Home</a>
+            <a href='about_glossary.html'>Learn More</a>
+            <a href='howto.html'>How-To</a>
+            <a href='summary.html'>Session Summary</a>
+        </nav>
+    
+        <!-- Main content area -->
+        <div style="margin-left: 50px;"> <!-- Adjust margin-left to match collapsed sidebar width -->
+            <h1>Welcome to MRovIn! Enjoy exploring the Martian surface from the comfort of your own home.</h1>
+            <!-- Content goes here -->
+        </div>
+    </body>
+</html>
+
