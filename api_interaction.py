@@ -28,19 +28,18 @@ class Rover:
       else:
          url = f'{self.nasa_url}{self._rover_name.lower()}/photos?api_key={self.api_key}&earth_date={date_or_sol}&camera={camera}'
 
-
-# Exposing the random_python function to javascript 
 @eel.expose     
 def set_rover(rover_name):
    rover = Rover(rover_name)
    print(rover.print_name())
 
 def set_camera():
+   """TODO"""
    pass
 
 def date_query():
+   """TODO"""
    pass
-
 
 eel.start("index.html", size=(800, 800))
 

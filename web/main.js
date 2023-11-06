@@ -7,6 +7,9 @@ const possibleCameras = {
   Spirit :      ['fhaz', 'rhaz', 'navcam', 'pancam', 'minites']
 };
 
+const defaultRover = 'Perseverance';
+const defaultCamera = possibleCameras[defaultRover][0];
+
 function populateCameras(roverName) {
   const cameraList = document.getElementById('cameraNames');
   cameraList.innerHTML = ''; 
@@ -35,7 +38,6 @@ function closeNav() {
 function getP() {
   document.getElementById("P").addEventListener("click", function() {
     let rover = document.getElementById("P").innerText; 
-    console.log("Clicked");
     getRover(rover);
     }
   )
@@ -44,7 +46,6 @@ function getP() {
 function getC() {
   document.getElementById("C").addEventListener("click", function() {
     let rover = document.getElementById("C").innerText; 
-    console.log("Clicked");
     getRover(rover);
     }
   )
@@ -53,7 +54,6 @@ function getC() {
 function getO() {
   document.getElementById("O").addEventListener("click", function() {
     let rover = document.getElementById("O").innerText; 
-    console.log("Clicked");
     getRover(rover);
     }
   )
@@ -62,14 +62,19 @@ function getO() {
 function getS() {
   document.getElementById("S").addEventListener("click", function() {
     let rover = document.getElementById("S").innerText; 
-    console.log("Clicked");
     getRover(rover);
     }
   )
 };
 
 function getRover(roverName) {
-  console.log("clicked")
   eel.set_rover(roverName);
-  populateCameras(roverName)
+  populateCameras(roverName);
 };
+
+function setDefaultRoverAndCamera() {
+  /* Default camera functionality will be added later*/
+  getRover(defaultRover);
+};
+
+window.addEventListener('load', setDefaultRoverAndCamera)
