@@ -23,6 +23,16 @@ function populateCameras(roverName) {
     listItem.appendChild(cameraName);
     cameraList.appendChild(listItem);
   });
+  
+  cameraList.addEventListener('click', cameraSelect);
+}
+
+function cameraSelect(event) {
+  const target = event.target;
+  if (target.tagName === 'BUTTON') {
+    const camera = target.textContent;
+    eel.set_camera(camera);
+  }
 }
 
 function openNav() {
@@ -72,9 +82,18 @@ function getRover(roverName) {
   populateCameras(roverName);
 };
 
-function setDefaultRoverAndCamera() {
-  /* Default camera functionality will be added later*/
+/*function setDefaultRoverAndCamera() {
   getRover(defaultRover);
+}; */
+
+
+function userQuery() {
+  let text = document.getElementById("enterQuery").value;
+  eel.query(text)
+
 };
+
+
+
 
 window.addEventListener('load', setDefaultRoverAndCamera)
