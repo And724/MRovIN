@@ -25,23 +25,23 @@
           <div id="main">
             <button class="openbtn" onclick="openNav()">&#9776; Configuration</button>
           </div>
-        <nav class = "Global Nav">
+        <nav>
             <a href='index.html'>MRovIn Home</a>
             <a href='about_glossary.html'>Learn More</a>
             <a href='howto.html'>How-To</a>
             <a href='summary.html'>Session Summary</a>
         </nav>
     
-        <article style="margin-left: 50px;">
-            <h1>Welcome to MRovIn! Enjoy exploring the Martian surface from the comfort of your own home.</h1>
-            <p>
+        <article>
+            <h1 class="welcome">Welcome to MRovIn! Enjoy exploring the Martian surface from the comfort of your own home.</h1>
+            <p class="paragraph">
               By default, Perseverance is selected as your rover and it's rover look up camera is selected.
               Proceed or select a new rover and camera from 'Configuration'. 
             </p>
-            <p>
-              Please enter a Martian Sol(integer) or an Earth date in YYYY-MM-DD format below.
-            </p>
             <form>
+              <p class="instruction">
+                Please enter a Martian Sol(integer) or an Earth date in YYYY-MM-DD format below.
+              </p>
               <input type="text" id="enterQuery" name="enterQuery" 
               placeholder="24(integer) or 2015-07-24(Earth Date)"
               size = 50
@@ -49,7 +49,11 @@
               <button class="button" onclick="userQuery()">Explore</button>
               <button class="button" onclick="randomQuery()">Random</button>
             </form>
-        
+          </article>
+          <article>
+            <p>
+              This is where the returned data is going to go.
+            </p>
           </article>
     </body>
 </html>

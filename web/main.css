@@ -10,7 +10,7 @@ body {
     z-index: 1; 
     top: 0;
     left: 0;
-    background-color: #111; 
+    background-color: #ccbaa7; 
     overflow-x: hidden; 
     padding-top: 60px; 
     transition: 0.2s; 
@@ -19,14 +19,14 @@ body {
   .sidebar a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 40px;
+    color: #444;
     display: block;
     transition: 0.2s;
   }
   
   .sidebar a:hover {
-    color: #f1f1f1;
+    color: #5f4d39;
   }
   
   .sidebar .closebtn {
@@ -40,14 +40,19 @@ body {
   .openbtn {
     font-size: 20px;
     cursor: pointer;
-    background-color: #111;
-    color: white;
+    background-color: #ccbaa7;
+    color: #5f4d39;
     padding: 10px 15px;
     border: none;
+    border: 5px;
+    border-width: 2px;
+    border-radius: 6px;
+    font-weight: bold;
   }
   
   .openbtn:hover {
-    background-color: #444;
+    background-color: #5f4d39;
+    color: whitesmoke;
   }
   
   
@@ -74,4 +79,28 @@ body {
 .menuList:hover{
   color: #f1f1f1;
   cursor: crosshair;
+}
+
+nav {
+  text-align: center;
+}
+
+nav a {
+  background-color: #ccbaa7;
+  border: 5px;
+  border-width: 2px;
+  border-radius: 6px;
+  color: #5f4d39;
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 2;
+  text-decoration: none;
+  vertical-align: middle;
+  margin: 10px;
+  padding: 0.40%;
+}
+
+nav a:hover{
+  background-color: #5f4d39;
+  color: whitesmoke;
 }
