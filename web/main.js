@@ -41,7 +41,7 @@ function getRover(roverName) {
   populateCameras(roverName);
 };
 
-//Sidebar navigation behavior.
+//Sidebar navigation behavior 
 function openNav() {
   document.getElementById("mySidebar").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";
@@ -52,7 +52,7 @@ function closeNav() {
   document.getElementById("main").style.marginLeft = "0";
 };
 
-//Individual functions to handle the selection of each rover separately 
+//Individual functions to handle the selection of each rover separately
 //            NOTE: See if this can be combined. It should be able to.
 function getP() {
   document.getElementById("P").addEventListener("click", function() {
@@ -86,7 +86,7 @@ function getS() {
   )
 };
 
-//Passes user entered text to python backend. Checks that text is valid.
+//Passes user entered text to python backend. Checks that text is valid. 
 function userQuery() {
   let text = document.getElementById("enterQuery").value;
   eel.query(text)

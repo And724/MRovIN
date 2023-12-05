@@ -5,9 +5,8 @@ import zmq
 
 eel.init('web')
 
-"""
-Communication between Python backend and JavaScript frontend.
-"""
+
+# ----- Communication between Python backend and JavaScript frontend -----
 
 @eel.expose     
 def set_rover(rover_name):
@@ -45,9 +44,8 @@ def random_query():
    response = socket.recv_json()
    print(response)
 
-"""
-Communication with other python modules and other necessary functions. 
-"""
+
+# ----- Communication with other python modules and other necessary functions ----- 
 
 context = zmq.Context()
 socket = context.socket(zmq.SUB)
@@ -61,7 +59,6 @@ def receive_api_data():
     """
     message = socket.recv_json()
     print(message)
-    socket.close()
 
 rb.default_rover()
 
