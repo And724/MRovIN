@@ -20,9 +20,9 @@ After the microservice receives the request, it will generate a response. To rec
 
 # Example Call
 ```
-random_input = input("Please enter 'random' if you would like a random date generated: ")
+random_input = input("Please enter "random" if you would like a random date generated: ")
 
-if random_input.lower() == 'random':  
+if random_input.lower() == "random":  
     socket.send(b"random")
     response = socket.recv_string()
     print(f"Date: {response}")

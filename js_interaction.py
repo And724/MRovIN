@@ -3,7 +3,7 @@ import eel
 import rover_build as rb
 import zmq  
 
-eel.init('web')
+eel.init("web")
 
 
 # ----- Communication between Python backend and JavaScript frontend -----

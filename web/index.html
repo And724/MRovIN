@@ -13,10 +13,10 @@
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <p class="submenu">Rover Select</p>
-            <p class="menuList" id="P" onclick="getP()">Perseverance</p>
-            <p class="menuList" id="C" onclick="getC()">Curiosity</p>
-            <p class="menuList" id="O" onclick="getO()">Opportunity</p>
-            <p class="menuList" id="S" onclick="getS()">Spirit</p>
+            <button class="menuList" id="P" >Perseverance</button>
+            <button class="menuList" id="C" >Curiosity</button>
+            <button class="menuList" id="O" >Opportunity</button>
+            <button class="menuList" id="S" >Spirit</button>
             <p class="submenu">Camera Select</p>
             <ul id="cameraNames"></ul>
           </div>
@@ -25,25 +25,26 @@
             <button class="openbtn" onclick="openNav()">&#9776; Configuration</button>
           </div>
         <nav>
-            <a href='index.html'>MRovIn Home</a>
-            <a href='about_glossary.html'>Learn More</a>
-            <a href='howto.html'>How-To</a>
-            <a href='summary.html'>Session Summary</a>
+            <a href="index.html">MRovIn Home</a>
+            <a href="about_glossary.html">Learn More</a>
+            <a href="howto.html">How-To</a>
+            <a href="summary.html">Session Summary</a>
         </nav>
     
         <article>
             <h1 class="welcome">Welcome to MRovIn! Enjoy exploring the Martian surface from the comfort of your own home.</h1>
             <p class="paragraph">
-              By default, Perseverance is selected as your rover and it's rover look up camera is selected.
-              Proceed or select a new rover and camera from 'Configuration'. 
+              By default, Perseverance is selected as your rover and it"s rover look up camera is selected.
+              Proceed or select a new rover and camera from "Configuration". 
             </p>
+            <div id="currentConfig"></div>
             <form onsubmit="return false">
               <p class="instruction">
                 Please enter a Martian Sol(integer) or an Earth date in YYYY-MM-DD format below.
               </p>
               <input type="text" id="enterQuery" name="enterQuery" 
               placeholder="24(integer) or 2015-07-24(Earth Date)"
-              size = 50
+              size = 30
               />
               <button class="button" onclick="userQuery()">Explore</button>
               <button class="button" onclick="randomQuery()">Random</button>

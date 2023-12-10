@@ -31,11 +31,11 @@ class Rover:
       Generates the url for the API call.
       """
       if date_or_sol == "latest_photos":
-         url = f'{self.nasa_url}{self._rover_name.lower()}/latest_photos?api_key={self.api_key}'
+         url = f"{self.nasa_url}{self._rover_name.lower()}/latest_photos?api_key={self.api_key}"
       elif "-" in date_or_sol:
-          url = f'{self.nasa_url}{self._rover_name.lower()}/photos?api_key={self.api_key}&earht_date={date_or_sol}&camera={self._camera_name}'
+          url = f"{self.nasa_url}{self._rover_name.lower()}/photos?api_key={self.api_key}&earht_date={date_or_sol}&camera={self._camera_name}"
       else:
-         url = f'{self.nasa_url}{self._rover_name.lower()}/photos?api_key={self.api_key}&sol={date_or_sol}&camera={self._camera_name}'
+         url = f"{self.nasa_url}{self._rover_name.lower()}/photos?api_key={self.api_key}&sol={date_or_sol}&camera={self._camera_name}"
       self._url = url
 
     def api_call(self):
@@ -112,8 +112,8 @@ def probe_valid_query(initial_query, initial_data):
             if "-" not in initial_query:
                 new_query = int(initial_query) + pos_counter
             else:
-                new_query = datetime.strptime(initial_query, '%Y-%m-%d') + timedelta(days=pos_counter)
-                new_query = new_query.strftime('%Y-%m-%d')
+                new_query = datetime.strptime(initial_query, "%Y-%m-%d") + timedelta(days=pos_counter)
+                new_query = new_query.strftime("%Y-%m-%d")
             rover_obj.build_url(str(new_query))
             new_data = rover_obj.api_call()
             pos_counter += 1
@@ -122,8 +122,8 @@ def probe_valid_query(initial_query, initial_data):
             if "-" not in initial_query:
                 new_query = int(initial_query) - neg_counter
             else:
-                new_query = datetime.strptime(initial_query, '%Y-%m-%d') - timedelta(days=neg_counter)
-                new_query = new_query.strftime('%Y-%m-%d')
+                new_query = datetime.strptime(initial_query, "%Y-%m-%d") - timedelta(days=neg_counter)
+                new_query = new_query.strftime("%Y-%m-%d")
             rover_obj.build_url(str(new_query))
             new_data = rover_obj.api_call()
             neg_counter += 1
@@ -145,7 +145,7 @@ def data_extraction(data):
 
 def time_since_photo(data):
    photo_date = data["earth_date"]
-   time_since_photo = datetime.strptime(str(date.today()), '%Y-%m-%d') - datetime.strptime(photo_date, '%Y-%m-%d')
+   time_since_photo = datetime.strptime(str(date.today()), "%Y-%m-%d") - datetime.strptime(photo_date, "%Y-%m-%d")
    data["elapsed_days"] = str(time_since_photo.days)
    socket.send_json(data)
 

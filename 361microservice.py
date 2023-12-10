@@ -5,12 +5,12 @@ import random
 rovers = ["Curiosity", "Opportunity", "Spirit", "Perseverance"]
 
 cameras = {
-  "Perseverance" :   ['edl_rucam', 'edl_rdcam', 'edl_ddcam', 'edl_pucam1', 'edl_pucam2', 
-                    'navcam_left', 'navcam_right', 'mcz_right', 'mcz_left', 'front_hazcam_left_a', 
-                    'front_hazcam_right_a', 'rear_hazcam_left', 'rear_hazcam_right', 'skycam', 'sherloc_watson'],
-  "Curiosity"    :   ['fhaz', 'rhaz', 'mast', 'chemcam', 'mahli', 'mardi', 'navcam'],
-  "Opportunity"  :   ['fhaz', 'rhaz', 'navcam', 'pancam', 'minites'],
-  "Spirit"       :   ['fhaz', 'rhaz', 'navcam', 'pancam', 'minites']
+  "Perseverance" :   ["edl_rucam", "edl_rdcam", "edl_ddcam", "edl_pucam1", "edl_pucam2", 
+                    "navcam_left", "navcam_right", "mcz_right", "mcz_left", "front_hazcam_left_a", 
+                    "front_hazcam_right_a", "rear_hazcam_left", "rear_hazcam_right", "skycam", "sherloc_watson"],
+  "Curiosity"    :   ["fhaz", "rhaz", "mast", "chemcam", "mahli", "mardi", "navcam"],
+  "Opportunity"  :   ["fhaz", "rhaz", "navcam", "pancam", "minites"],
+  "Spirit"       :   ["fhaz", "rhaz", "navcam", "pancam", "minites"]
 }
 
 def generate_random_query():
