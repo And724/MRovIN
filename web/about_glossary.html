@@ -1,27 +1,124 @@
 <html lang="en"> 
-  <head> 
+    <head> 
     <meta charset="UTF-8" /> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <script src="main.js"></script> 
     <script type="text/javascript" src="/eel.js"></script>
     <title>MRovIn</title> 
     </head>
 
+<body>
+    <nav 
+    class = "Global Nav">
+        <a href='index.html'>MRovIn Home</a>
+        <a href='about_glossary.html'>Learn More</a>
+        <a href='howto.html'>How-To</a>
+        <a href='summary.html'>Session Summary</a>
+    </nav>
 
-<nav 
-class = "Global Nav">
-    <a href='index.html'>MRovIn Home</a>
-    <a href='about_glossary.html'>Learn More</a>
-    <a href='howto.html'>How-To</a>
-    <a href='summary.html'>Session Summary</a>
-</nav>
-
-<p>
-    Will contain a glossary of all app terminology. For example: this will include
-    definitions of all the rover camers, info about each rover, what a martian sol 
-    means and more. Full text and functionality will be implemented later. Also will
-    be an about section explaining the use and purpose of the app. 
-</p>
+    <article>
+        <h1>About</h1>
+        <p>
+            MRovIn is an exploration tool designed to bring the Martian surface closer 
+            to you. This app serves as a gateway to NASA's Mars Rover mission data allowing
+            enthusiasts, space aficionados, and curious minds to delve into the landscape of
+            Mars provided by our hard-working rovers. MRovIn provides a user-friendly interface
+            to request data from four rovers including: Perseverance, Curiosity, Opportunity, 
+            and Spirit. Explore the imagery they have captured and gain some Mars Rover Insights
+            at the click of a button. 
+        </p>
+    </article>
+    <article>
+        <h1>Glossary</h1>
+        <dl>
+            <dt>FHAZ</dt>
+            <dd>Front Hazard Avoidance Camera</dd>
+            <dt>RHAZ</dt>
+            <dd>Rear Hazard Avoidance Camera</dd>
+            <dt>MAST</dt>
+            <dd>Mast Camera</dd>
+            <dt>CHEMCAM</dt>
+            <dd>Chemistry and Camera Complex</dd>
+            <dt>MAHLI</dt>
+            <dd>Mars Hand Lens Imager</dd>
+            <dt>MARDI</dt>
+            <dd>MArs Descent Imager</dd>
+            <dt>NAVCAM</dt>
+            <dd>Navigation Camera</dd>
+            <dt>PANCAM</dt>
+            <dd>Panoramic Camera</dd>
+            <dt>MINITES</dt>
+            <dd>Miniature Thermal Emission Spectrometer</dd>
+            <dt>Martian Sol or Sol</dt>
+            <dd>A Martian rotation or Martian day that counts up from the rover's landing date.</dd>
+        </dl>
+    </article>
+    <article>
+        <h1>Mission Manifests</h1>
+        <p>Click the drop-down menus below to view each rover's mission manifest. The manifest
+            includes information pertaining to the chosen rover's mission. 
+        </p>
+        <div class="manifestHeader">
+            <h1>Perseverance</h1>
+            <button type="button" class="collapse">&#9660;</button>
+        </div>
+        <div class="text">
+            <p>Launch Date : 2020-07-30 <br>
+               Landing Date : 2021-02-18 <br>
+               Rover Status : Active <br>
+               Maximum Martian Sol : 995 <br>
+               Max Earth Date: 2023-12-07 <br>
+               Total Photos : 189, 515</p>
+        </div>
+        <div class="manifestHeader">
+            <h1>Curiosity</h1>
+            <button type="button" class="collapse">&#9660;</button>
+        </div>
+        <div class="text">
+            <p>Launch Date : 2011-11-26 <br>
+               Landing Date : 2012-08-06 <br>
+               Rover Status : Active <br>
+               Maximum Martian Sol : 4030 <br>
+               Max Earth Date: 2023-12-07 <br>
+               Total Photos : 687, 623</p>
+        </div>
+        <div class="manifestHeader">
+            <h1>Opportunity</h1>
+            <button type="button" class="collapse">&#9660;</button>
+        </div>
+        <div class="text">
+            <p>Launch Date : 2003-07-07 <br>
+               Landing Date : 2004-01-25 <br>
+               Rover Status : Complete <br>
+               Maximum Martian Sol : 5111 <br>
+               Max Earth Date: 2018-06-11 <br>
+               Total Photos : 198, 439</p>
+        </div>
+        <div class="manifestHeader">
+            <h1>Spirit</h1>
+            <button type="button" class="collapse">&#9660;</button>
+        </div>
+        <div class="text">
+            <p>Launch Date : 2003-06-10<br>
+               Landing Date : 2004-01-04 <br>
+               Rover Status : Complete <br>
+               Maximum Martian Sol : 2208 <br>
+               Max Earth Date : 2010-03-21 <br>
+               Total Photos : 124, 550</p>
+        </div>
+    </article>
+    <article>
+        <h1>Acknowledgments</h1>
+        <p>Thank you to NASA for allowing individuals to access their APIs and to Corin Cerami
+            who maintains the Mars Rover API. Camera definitions/information is from the NASA
+            API website and Corin Cerami. Please see the links below.
+        </p>
+        <p>
+            <a href="https://api.nasa.gov/" target="blank">NASA APIs</a>
+            <a href="https://github.com/corincerami/mars-photo-api" target="blank">Mars Rover API Github</a>
+        </p>
+        </article>
+<script src="main.js"></script> 
+</body>

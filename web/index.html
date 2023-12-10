@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <script src="main.js"></script> 
     <script type="text/javascript" src="/eel.js"></script>
     <title>MRovIn</title> 
     </head>
@@ -38,7 +37,7 @@
               By default, Perseverance is selected as your rover and it's rover look up camera is selected.
               Proceed or select a new rover and camera from 'Configuration'. 
             </p>
-            <form>
+            <form onsubmit="return false">
               <p class="instruction">
                 Please enter a Martian Sol(integer) or an Earth date in YYYY-MM-DD format below.
               </p>
@@ -48,13 +47,13 @@
               />
               <button class="button" onclick="userQuery()">Explore</button>
               <button class="button" onclick="randomQuery()">Random</button>
+              <button class="button" onclick="recentPhoto()">Recent</button>
             </form>
           </article>
           <article>
-            <p>
-              This is where the returned data is going to go.
-            </p>
+            <div id="dataContainer"></div>
           </article>
+    <script src="main.js"></script> 
     </body>
 </html>
 

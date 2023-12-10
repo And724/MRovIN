@@ -1,4 +1,5 @@
-//Initialize constants
+
+//Initialize Rover related constants
 const possibleCameras = {
   Perseverance :   ['edl_rucam', 'edl_rdcam', 'edl_ddcam', 'edl_pucam1', 'edl_pucam2', 
                     'navcam_left', 'navcam_right', 'mcz_right', 'mcz_left', 'front_hazcam_left_a', 
@@ -29,11 +30,6 @@ function populateCameras(roverName) {
   
   cameraList.addEventListener('click', cameraSelect);
 }
-
-function getRover(roverName) {
-  eel.set_rover(roverName);
-  populateCameras(roverName);
-};
 
 //Passes the user rover selection to the backend and populateCameras.
 function getRover(roverName) {
@@ -89,11 +85,41 @@ function getS() {
 //Passes user entered text to python backend. Checks that text is valid. 
 function userQuery() {
   let text = document.getElementById("enterQuery").value;
-  eel.query(text)
+  eel.query(text);
 };
 
 function randomQuery(){
-  eel.random_query()
+  eel.random_query();
 };
+
+function recentPhoto(){
+  eel.query("latest_photos");
+};
+
+const dataContainer = document.getElementById("dataContainer");
+
+eel.expose(displayData);
+function displayData(returnedData) {
+  dataContainer.innerHTML = " ";
+  const dataElements = document.createElement("div");
+  dataElements.classList.add('data');
+
+  dataElements.innerHTML = `
+    <h2>Rover: ${returnedData.rover} Camera: ${returnedData.camera}</h2>
+    <p>Earth Date: ${returnedData.earth_date} Equivalent Sol: ${returnedData.sol}</p>
+    <p>It has been ${returnedData.elapsed_days} day(s) since this photo was taken by ${returnedData.rover}!</p>
+    <img src="${returnedData.img_link}" alt="Mars Rover Image" class="imageSize"/> 
+  `;
+  dataContainer.appendChild(dataElements);
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+  const button = document.querySelector('.collapse');
+  const text = document.querySelector('.text');
+
+  button.addEventListener('click', function() {
+      text.style.display = (text.style.display === 'none' || text.style.display === '') ? 'block' : 'none';
+});
+});
 
 window.addEventListener('load', setDefaultRoverAndCamera)

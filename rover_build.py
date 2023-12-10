@@ -1,7 +1,7 @@
 import zmq 
 import requests
-from data_processing import receive_send_data
-import random  
+import time
+from datetime import datetime, timedelta, date   
 
 context = zmq.Context()
 socket = context.socket(zmq.PUB)
@@ -30,7 +30,9 @@ class Rover:
       """
       Generates the url for the API call.
       """
-      if "-" in date_or_sol:
+      if date_or_sol == "latest_photos":
+         url = f'{self.nasa_url}{self._rover_name.lower()}/latest_photos?api_key={self.api_key}'
+      elif "-" in date_or_sol:
           url = f'{self.nasa_url}{self._rover_name.lower()}/photos?api_key={self.api_key}&earht_date={date_or_sol}&camera={self._camera_name}'
       else:
          url = f'{self.nasa_url}{self._rover_name.lower()}/photos?api_key={self.api_key}&sol={date_or_sol}&camera={self._camera_name}'
@@ -43,6 +45,8 @@ class Rover:
       response = requests.get(self._url)
       if response.status_code == 200:
          data = response.json()
+         if "latest_photos" in data:
+            data["photos"] = data.pop("latest_photos")
          return data 
     
     def get_rover_name(self):
@@ -90,35 +94,60 @@ def build_rover_q(query):
    data = rover_obj.api_call()
    
    if data == None or data["photos"] == []:
-      new_query = probe_valid_query(query)
-      build_rover_q(new_query)
+      probe_valid_query(query, data)
    else:
-      send_api_data(data)
+      data_extraction(data)
   
-def probe_valid_query(old_query):
-# Try a while loop and timing how long this takes. If more than 15 seconds 
-# default to latest photo. See if this can be done more efficiently maybe
-# within the rover class call this external function and loop until something
-# valid is found.
-   old_query = int(old_query)
-   if old_query >= 400:
-      new_query = old_query - 6 * (random.randint(5, 10) ** 2)
-      print(new_query)
-      return str(new_query)
-   elif 0 <= old_query < 400:
-      new_query = old_query + 2 * (random.randint(1, 5) ** 2)
-      print(new_query)
-      return str(new_query)
-   elif old_query < 0:
-      return "0" 
-  
+def probe_valid_query(initial_query, initial_data):
+    print("Probing...")
+    start_time = time.time()
+    new_data = initial_data
+    pos_counter = 1
+    neg_counter = 1
+
+    while new_data is None or new_data["photos"] == []:
+        elapsed_time = time.time() - start_time
+
+        if elapsed_time <= 15:
+            if "-" not in initial_query:
+                new_query = int(initial_query) + pos_counter
+            else:
+                new_query = datetime.strptime(initial_query, '%Y-%m-%d') + timedelta(days=pos_counter)
+                new_query = new_query.strftime('%Y-%m-%d')
+            rover_obj.build_url(str(new_query))
+            new_data = rover_obj.api_call()
+            pos_counter += 1
        
-def send_api_data(data):
-   """
-   Passes data to be parsed to data_processing
-   """
-   processed_data = receive_send_data(data)
-   socket.send_json(processed_data)
+        elif 15 < elapsed_time <= 30:
+            if "-" not in initial_query:
+                new_query = int(initial_query) - neg_counter
+            else:
+                new_query = datetime.strptime(initial_query, '%Y-%m-%d') - timedelta(days=neg_counter)
+                new_query = new_query.strftime('%Y-%m-%d')
+            rover_obj.build_url(str(new_query))
+            new_data = rover_obj.api_call()
+            neg_counter += 1
+        
+        elif elapsed_time > 30:
+            rover_obj.build_url("latest_photos")
+            new_data = rover_obj.api_call()
+    data_extraction(new_data)
+
+def data_extraction(data):
+    data_dict = {}
+    if data["photos"] != []:
+        data_dict["sol"] = data["photos"][0]["sol"]
+        data_dict["earth_date"] = data["photos"][0]["earth_date"]
+        data_dict["rover"] = data["photos"][0]["rover"]["name"]
+        data_dict["camera"] = data["photos"][0]["camera"]["full_name"]
+        data_dict["img_link"] = data["photos"][0]["img_src"]
+        time_since_photo(data_dict)
+
+def time_since_photo(data):
+   photo_date = data["earth_date"]
+   time_since_photo = datetime.strptime(str(date.today()), '%Y-%m-%d') - datetime.strptime(photo_date, '%Y-%m-%d')
+   data["elapsed_days"] = str(time_since_photo.days)
+   socket.send_json(data)
 
 def default_rover():
    """
