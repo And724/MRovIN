@@ -108,7 +108,7 @@ def probe_valid_query(initial_query, initial_data):
     while new_data is None or new_data["photos"] == []:
         elapsed_time = time.time() - start_time
 
-        if elapsed_time <= 15:
+        if elapsed_time <= 10:
             if "-" not in initial_query:
                 new_query = int(initial_query) + pos_counter
             else:
@@ -118,7 +118,7 @@ def probe_valid_query(initial_query, initial_data):
             new_data = rover_obj.api_call()
             pos_counter += 1
        
-        elif 15 < elapsed_time <= 30:
+        elif 15 < elapsed_time <= 20:
             if "-" not in initial_query:
                 new_query = int(initial_query) - neg_counter
             else:
@@ -128,7 +128,7 @@ def probe_valid_query(initial_query, initial_data):
             new_data = rover_obj.api_call()
             neg_counter += 1
         
-        elif elapsed_time > 30:
+        elif elapsed_time > 20:
             rover_obj.build_url("latest_photos")
             new_data = rover_obj.api_call()
     data_extraction(new_data)

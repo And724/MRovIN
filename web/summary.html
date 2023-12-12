@@ -9,23 +9,27 @@
     <title>MRovIn</title> 
     </head>
  <body>
+    <header class="header">Summary</header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <nav class = "Global Nav">
         <a href="index.html">MRovIn Home</a>
         <a href="about_glossary.html">Learn More</a>
         <a href="howto.html">How-To</a>
         <a href="summary.html">Session Summary</a>
     </nav>
-
-    <p>
-        This will contain a summary of the users queries for the current app 
-        session. A user will be able to click an icon from the list of queries
-        that will drop down and show the info from that query. This will only
-        store the ten most recent queries.
-    </p>
+    <div class="sumButton">
     <button class="clearButton" onclick="clearSummary()">Clear</button>
-    <article>
+    </div>
+    <article class="summaryPage">
         <div id="sessionSummary"></div>
     </article>
+    <footer class="footer">
+        <p>	&copy;2023 Andrew Garcia</p>
+    </footer>
     <script src="main.js"></script> 
     </body>  
 </html> 

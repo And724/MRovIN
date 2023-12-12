@@ -34,6 +34,7 @@ function populateCameras(roverName) {
   cameras.forEach(camera => {
     const listItem = document.createElement("li");
     const cameraName = document.createElement("button");
+    cameraName.classList.add("buttonList");
     cameraName.textContent = camera;
     cameraName.onclick = function() {
       eel.set_camera(camera);
@@ -80,6 +81,7 @@ roverButtons.forEach(button => {
 
 //Passes user entered text to python backend. Checks that text is valid. 
 function userQuery() {
+  document.body.classList.add('loading');
   let text = document.getElementById("enterQuery").value;
 
    const integerRegex = /^\d+$/;
@@ -98,10 +100,12 @@ function userQuery() {
 
 function randomQuery(){
   eel.random_query();
+  document.body.classList.add('loading');
   queryWait()
 };
 
 function recentPhoto(){
+  document.body.classList.add('loading');
   eel.query("latest_photos");
 };
 
@@ -114,7 +118,7 @@ function displayData(returnedData) {
   dataElements.classList.add("data");
 
   dataElements.innerHTML = `
-    <h2>Rover: ${returnedData.rover} Camera: ${returnedData.camera}</h2>
+    <h2>Rover: ${returnedData.rover} <br> Camera: ${returnedData.camera}</h2>
     <p>Earth Date: ${returnedData.earth_date} Equivalent Sol: ${returnedData.sol}</p>
     <p>It has been ${returnedData.elapsed_days} day(s) since this photo was taken by ${returnedData.rover}!</p>
     <img src="${returnedData.img_link}" alt="Mars Rover Image" class="imageSize"/> 
@@ -123,6 +127,7 @@ function displayData(returnedData) {
 
   const savedData = JSON.parse(localStorage.getItem("savedData")) || [];
   const uniqueData = new Set(savedData.map(query => query.imgLink));
+  document.body.classList.remove('loading');
 
   if (!uniqueData.has(returnedData.img_link)) {
   const currentQuery = {

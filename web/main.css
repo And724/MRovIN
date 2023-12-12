@@ -1,6 +1,37 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body { 
     font-family: "Poppins", sans-serif;
-    background-color: #422e25;
+    background-color: #6d4b43;
+    margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 35px;
+  background-color: #99857a;
+}
+
+.header{
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  font-size:70px;
+  font-weight: bolder;
+  background-color: #99857a;
+  text-align: center;
+  top: 0;
+  left: -1;
+  padding: 1%;
+  color: #Aeb5bc;
+  margin-bottom: 80%;
 }
 
 .sidebar {
@@ -10,23 +41,23 @@ body {
     z-index: 1; 
     top: 0;
     left: 0;
-    background-color: #ccbaa7; 
+    background-color: #98999e; 
     overflow-x: hidden; 
     padding-top: 60px; 
     transition: 0.2s; 
   }
   
   .sidebar a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 8px 2px 32px;
     text-decoration: none;
-    font-size: 40px;
-    color: #444;
+    font-size: 60px;
+    color: black;
     display: block;
     transition: 0.2s;
   }
   
   .sidebar a:hover {
-    color: #5f4d39;
+    color: #e41937;
   }
   
   .sidebar .closebtn {
@@ -38,24 +69,64 @@ body {
   }
   
   .openbtn {
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
-    background-color: #ccbaa7;
-    color: #5f4d39;
+    background-color: #c8c8c8;
+    color: #e41937;
     padding: 10px 15px;
-    border: none;
     border: 5px;
     border-width: 2px;
     border-radius: 6px;
     font-weight: bold;
+    margin-top: 80px;
+    border-style: solid;
+    border-color: 76777b;
   }
   
   .openbtn:hover {
-    background-color: #5f4d39;
-    color: whitesmoke;
+    background-color: black;
+    color: #e41937;
   }
   
+  .button{
+    font-size: 12px;
+    cursor: pointer;
+    background-color: #c8c8c8;
+    color: #e41937;
+    padding: 1.5%;
+    border: 5px;
+    border-width: 2px;
+    border-radius: 50px;
+    font-weight: bold;
+    border-style: solid;
+    border-color: 76777b;
+  }
   
+.button:hover{
+  background-color: black;
+  color: #e41937;
+}
+
+.mainButton{
+  font-size: 12px;
+  cursor: pointer;
+  background-color: #c8c8c8;
+  color: #e41937;
+  padding: 1.5%;
+  border: 5px;
+  border-width: 2px;
+  border-radius: 50px;
+  font-weight: bold;
+  border-style: solid;
+  border-color: 76777b;
+  margin-right: 60px;
+}
+
+.mainButton:hover{
+  background-color: black;
+  color: #e41937;
+}
+
   #main {
     transition: margin-left .5s; 
     padding: 20px;
@@ -68,16 +139,21 @@ body {
   }
 
 .menuList{
-  padding: 8px 8px 8px 32px;
+    padding: auto;
+    margin: 5px 5px 5px 30px;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    text-align: center;
+    color: white;
+    background-color: #2a3439;
     display: block;
     transition: 0.3s;
+    align-items: center;
 }
 
 .menuList:hover{
-  color: #f1f1f1;
+  color: #e41937;
+  background-color: black;
   cursor: pointer;
 }
 
@@ -86,12 +162,12 @@ nav {
 }
 
 nav a {
-  background-color: #ccbaa7;
+  background-color: #5f4743;
   border: 5px;
   border-width: 2px;
   border-radius: 6px;
-  color: #5f4d39;
-  font-size: 1.2em;
+  color: whitesmoke;
+  font-size: 1em;
   font-weight: bold;
   line-height: 2;
   text-decoration: none;
@@ -101,7 +177,7 @@ nav a {
 }
 
 nav a:hover{
-  background-color: #5f4d39;
+  background-color: #60534b;
   color: whitesmoke;
 }
 
@@ -138,3 +214,132 @@ nav a:hover{
   display: none; 
   font-size: 15px; 
 } 
+
+.mainArea{
+  background-color: #c8c8c8;
+  width: 80%;
+  padding: 3%;
+  margin: 50px 20px 70px 50px;
+  border:#76777b;
+  border-style: solid;
+  border-radius: 50px;
+}
+
+.cameraRover{
+  background-color: #98999e;
+  color: black;
+  margin: 0px 0px 20px 130px;
+  width: 55%;
+  padding: 0.1% 0.8% 0.1% 0.8%;
+  border-style: solid;
+  border-color: #2a3439;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.userArea{
+  background-color: #98999e;
+  color: black;
+  width: 100%;
+  border-style: dotted;
+  border-color: #2a3439;
+  border-radius: 5px;
+  border-width: 1.5px;
+  text-align: center;
+  padding: 0.5%;
+  margin: 10px 1px 10px 0.5px;
+}
+
+.submenu{
+  color:#2a3439;
+  text-align: center;
+  font-weight: bolder; 
+  margin: auto;
+  padding: auto;
+  font-size: 90%;
+}
+
+.textBox{
+  border-style: solid;
+  border-color: #2a3439;
+}
+
+.clearButton{
+  margin: 5px 10px 7px 265px;
+  font-size: 15px;
+  cursor: pointer;
+  background-color: #c8c8c8;
+  color: #e41937;
+  padding: 1.5%;
+  border: 5px;
+  border-width: 2px;
+  border-radius: 50px;
+  font-weight: bold;
+  border-style: solid;
+  border-color: 76777b;
+  width:200px;
+  }
+  
+.clearButton:hover{
+  background-color: black;
+  color: #e41937;
+}
+
+.aboutPage{
+  background-color: #c8c8c8;
+  width: 80%;
+  padding: 3%;
+  margin: 50px 20px 70px 50px;
+  border:#76777b;
+  border-style: solid;
+  border-radius: 50px;
+}
+
+.summaryPage{
+  background-color: #98999e;
+  color: black;
+  width: 100%;
+  border-style: dotted;
+  border-color: #2a3439;
+  border-radius: 5px;
+  border-width: 1.5px;
+  text-align: center;
+  padding: auto;
+  margin: auto;
+}
+
+.loading{
+  cursor:wait
+}
+
+li{
+  list-style: none;
+  text-align: left;
+}
+
+.buttonList{
+  padding: auto;
+  margin: 5px 5px 5px 5px;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: left;
+  color: white;
+  background-color: #2a3439;
+  display: block;
+  transition: 0.3s;
+  align-items: center;
+  left: 0;
+}
+
+.buttonList:hover{
+color: #e41937;
+background-color: black;
+cursor: pointer;
+}
+
+.cameraNames{
+  padding: auto;
+  margin: 5px 5px 5px 1px;
+  left: 0;
+
+}

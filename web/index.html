@@ -10,6 +10,7 @@
     </head>
 
     <body>
+      <header class="header">MRovIn <img src="mars-rover.png"></header>
         <div id="mySidebar" class="sidebar">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <p class="submenu">Rover Select</p>
@@ -18,43 +19,37 @@
             <button class="menuList" id="O" >Opportunity</button>
             <button class="menuList" id="S" >Spirit</button>
             <p class="submenu">Camera Select</p>
-            <ul id="cameraNames"></ul>
+            <ul id="cameraNames" class="cameraNames"></ul>
           </div>
           
           <div id="main">
-            <button class="openbtn" onclick="openNav()">&#9776; Configuration</button>
+            <button class="openbtn" onclick="openNav()">&#9776; CONFIG</button>
           </div>
-        <nav>
-            <a href="index.html">MRovIn Home</a>
-            <a href="about_glossary.html">Learn More</a>
-            <a href="howto.html">How-To</a>
-            <a href="summary.html">Session Summary</a>
-        </nav>
-    
-        <article>
-            <h1 class="welcome">Welcome to MRovIn! Enjoy exploring the Martian surface from the comfort of your own home.</h1>
-            <p class="paragraph">
-              By default, Perseverance is selected as your rover and it"s rover look up camera is selected.
-              Proceed or select a new rover and camera from "Configuration". 
-            </p>
-            <div id="currentConfig"></div>
-            <form onsubmit="return false">
+          <article class="mainArea">
+            <div id="currentConfig" class="cameraRover" ></div>
+            <form onsubmit="return false" class="userArea">
               <p class="instruction">
-                Please enter a Martian Sol(integer) or an Earth date in YYYY-MM-DD format below.
+                Perseverance is the default rover. Click "CONFIG" to change Rover and Camera. Please enter a Martian Sol(integer) or an Earth date in YYYY-MM-DD format below.
               </p>
               <input type="text" id="enterQuery" name="enterQuery" 
               placeholder="24(integer) or 2015-07-24(Earth Date)"
-              size = 30
+              size = 30 class="textBox"
               />
-              <button class="button" onclick="userQuery()">Explore</button>
+              <button class="mainButton" onclick="userQuery()">Explore</button>
               <button class="button" onclick="randomQuery()">Random</button>
               <button class="button" onclick="recentPhoto()">Recent</button>
             </form>
+            <div id="dataContainer" class="userArea"></div>
           </article>
-          <article>
-            <div id="dataContainer"></div>
-          </article>
-    <script src="main.js"></script> 
+    <footer class="footer">
+      <nav>
+        <a href="index.html">MRovIn Home</a>
+        <a href="about_glossary.html">Learn More</a>
+        <a href="howto.html">How-To</a>
+        <a href="summary.html">Session Summary</a>
+      </nav>
+     </footer>
+     <script src="main.js"></script> 
     </body>
 </html>
 
